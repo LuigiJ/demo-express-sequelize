@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  .main
+    h2
+      | use sequelize management mysql
+    form
+      input(type='text')
+      br
+      button
+        | 点我啊
+    - var isIndex = page === 'index'
+    if isIndex
+      script(src='http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js')
+      script(src='/javascripts/index.js')
