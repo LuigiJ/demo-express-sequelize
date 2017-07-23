@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "wdev": "set DEBUG=myapp & npm start"
+    "wdev": "set DEBUG=mytest & npm start",
+    "ldev": "DEBUG=mytest npm start"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
@@ -15,6 +16,7 @@
     "mysql2": "^1.3.6",
     "pug": "~2.0.0-beta11",
     "sequelize": "^4.4.2",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "~2.4.2",
+    "sha1": "^1.1.1"
   }
 }

@@ -1,8 +1,9 @@
 $(function(){
   $('button').click(function(e){
     e.preventDefault();
+    // localhost:3000/db/test/findAll
     $.ajax({
-      url: 'http://localhost:3000/db/test/findAll',
+      url: '/db/test/findAll',
       type: 'GET',
       dataType: 'json',
       success: function (data) {
