@@ -5,5 +5,5 @@ module.exports = {
   appSecret: appSecret,
   token: 'qiaojun',
   accessTokenUrl: 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' + appID + '&secret=' + appSecret,
-  createMenuUrl: 'https://api.weixin.qq.com/cgi-bin/menu/create?access_token='
+  menuUrl: 'https://api.weixin.qq.com/cgi-bin/menu/'
 }

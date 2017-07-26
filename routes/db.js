@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var dbController = require('../db/controller/index');
+var testController = require('../db/controller/test');
 
-router.get('/test/findAll', dbController.findAllTest);
+router.get('/test/findAll', testController.findAllTest);
+router.get('/test/findOne', testController.findOneTest);
 
 module.exports = router;

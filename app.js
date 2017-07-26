@@ -11,6 +11,8 @@ var db = require('./routes/db');
 var weChat = require('./routes/weChat');
 var backstage = require('./routes/backstage');
 
+var weChatInit = require('./weChat/controller/init');
+
 var app = express();
 
 // view engine setup
@@ -48,5 +50,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+weChatInit.initAccessToken();
 
 module.exports = app;

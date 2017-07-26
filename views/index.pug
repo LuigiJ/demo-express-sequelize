@@ -9,8 +9,10 @@ block content
     form
       input(type='text')
       br
-      button
-        | 点我啊
+      button.one
+        | 第一个条数据
+      button.all
+        | 所有数据
     - var isIndex = page === 'index'
     if isIndex
       script(src='http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js')
