@@ -1,30 +1,24 @@
-var xml2json = require('node-xml2json');
-
-function handler (obj) {
-  if (obj.MsgType === 'text') {
-    return '感谢使用';
-  } else {
-    return '';
-  }
-}
+var receiveUtils = require('../utils/receiveMessage');
+var handler = require('../utils/replyMessage');
 
 function receive (req, res, next) {
   req.rawBody = '';
-  var json = {};
+  var arr = [];
   var obj = {};
   req.setEncoding('utf8');
 
   req.on('data', function (chunk) {
     req.rawBody += chunk;
   });
+  
   req.on('end', function () {
-    console.log(req.rawBody);
-    json = xml2json.parser(req.rawBody);
-    obj = JSON.stringify(json);
-    for (var k in obj) {
-      console.log('k --> ' + k, ' , v --> ' + obj[k]);
+    const result = handler(receiveUtils.converX2J(req.rawBody));
+    if (result.type === 'xml') {
+      res.set('Content-Type', 'application/xml');
+      res.send(new Buffer(result.msg));
+    } else {
+      res.send(result.msg);
     }
-    res.send(handler(obj));
   });
 }
 
